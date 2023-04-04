@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "टिप्पणियाँ",
+    "form": {
+      "title": "शीर्षक",
+      "body": "शरीर",
+      "validation": {
+        "title-required": "शीर्षक खाली नहीं हो सकता",
+        "title-max": "शीर्षक {{संख्या}} वर्णों से अधिक नहीं होना चाहिए",
+        "body-required": "body can't be empt"
+      }
+    },
+    "buttons": {
+      "submit": "नई पोस्ट जोड़ें",
+      "reset": "रीसेट",
+      "delete": "delete",
+      "update": "update"
+    }
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "about": "About"
+    }
+  }
+}
