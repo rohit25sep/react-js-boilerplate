@@ -9,7 +9,7 @@ export const PostList = props => {
   return (
     <>
       <Grid container>
-        {posts.map(post => (
+        {posts?.map(post => (
           <PostCardView
             data-test-id={post.title}
             key={post.id}

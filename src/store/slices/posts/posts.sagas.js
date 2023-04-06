@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 
-import { getData } from "service/api"
+import { axiosGet } from "service/api/configureAxios"
 import { postsActions } from "store/slices/posts/posts.slice"
 
 // Worker Sagas
 export function* onGetPosts() {
-  const posts = yield call(getData)
-  yield put(postsActions.fetchAllSucceeded(posts))
+  const posts = yield call(axiosGet,"/comments")
+  yield put(postsActions.fetchAllSucceeded(posts.data))
 }
 
 // Watcher Saga
