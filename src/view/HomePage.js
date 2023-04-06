@@ -1,15 +1,15 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { PostContainer } from "features/posts"
-import TitleTypography from "libs/ui/components/TitleTypography"
+import { PostContainer } from 'features/posts'
+import TitleTypography from 'libs/ui/components/TitleTypography'
 
 const HomePage = () => {
   const { t } = useTranslation()
 
   return (
     <>
-      <TitleTypography title={t("home.title")} />
+      <TitleTypography title={t('home.title')} />
       <PostContainer />
     </>
   )

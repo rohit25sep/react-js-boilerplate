@@ -1,27 +1,23 @@
-import createSagaMiddleware from "@redux-saga/core"
-import { configureStore } from "@reduxjs/toolkit"
-import { createBrowserHistory } from "history"
-import { createReduxHistoryContext } from "redux-first-history"
-import logger from "redux-logger"
-import { persistReducer } from "redux-persist"
-import storage from "redux-persist/lib/storage"
+import createSagaMiddleware from '@redux-saga/core'
+import { configureStore } from '@reduxjs/toolkit'
+import { createBrowserHistory } from 'history'
+import { createReduxHistoryContext } from 'redux-first-history'
+import logger from 'redux-logger'
+import { persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-import { Env } from "config/Env"
-import { rootSaga } from "store/rootSaga"
-import postsReducer from "store/slices/posts/posts.slice"
+import { Env } from 'config/Env'
+import { rootSaga } from 'store/rootSaga'
+import postsReducer from 'store/slices/posts/posts.slice'
 
-const {
-  createReduxHistory,
-  routerMiddleware,
-  routerReducer
-} = createReduxHistoryContext({
+const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
   history: createBrowserHistory(),
   reduxTravelling: Env.isDev(),
-  savePreviousLocations: 1
+  savePreviousLocations: 1,
 })
 const persistConfig = {
-  key: "gulfHR",
-  storage
+  key: 'gulfHR',
+  storage,
 }
 const persistedReducer = persistReducer(persistConfig, postsReducer)
 
@@ -31,14 +27,14 @@ const makeStore = () => {
   const store = configureStore({
     reducer: {
       posts: persistedReducer,
-      router: routerReducer
+      router: routerReducer,
     },
     devTools: Env.isDev(),
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({ thunk: false })
         .concat(sagaMiddleware)
         .concat(routerMiddleware)
-        .concat(logger)
+        .concat(logger),
   })
 
   sagaMiddleware.run(rootSaga)

@@ -1,7 +1,7 @@
-import { useCallback } from "react"
+import { useCallback } from 'react'
 
-import { useAppDispatch, useAppSelector } from "store/hooks"
-import { postsActions, selectPosts } from "store/slices/posts"
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { postsActions, selectPosts } from 'store/slices/posts'
 
 export const usePostService = () => {
   const dispatch = useAppDispatch()
@@ -13,7 +13,7 @@ export const usePostService = () => {
       post => {
         dispatch(postsActions.create({ title: post.title, body: post.body }))
       },
-      [dispatch]
+      [dispatch],
     ),
 
     fetchAllPosts: useCallback(() => {
@@ -24,7 +24,7 @@ export const usePostService = () => {
       post => {
         dispatch(postsActions.delete(post))
       },
-      [dispatch]
+      [dispatch],
     ),
 
     updatePost: useCallback(
@@ -32,12 +32,12 @@ export const usePostService = () => {
         dispatch(
           postsActions.update({
             ...post,
-            body: `Updated at ${new Date().toISOString()}`
-          })
+            body: `Updated at ${new Date().toISOString()}`,
+          }),
         )
       },
-      [dispatch]
-    )
+      [dispatch],
+    ),
   }
 }
 

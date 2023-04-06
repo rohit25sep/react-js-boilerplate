@@ -1,14 +1,14 @@
-import axios from "axios"
-import { Env } from "config/Env"
+import axios from 'axios'
+import { Env } from 'config/Env'
 const axiosClient = axios.create({
-  baseURL: Env.API_BASE_URL
+  baseURL: Env.API_BASE_URL,
 })
-const authToken = localStorage.getItem("authToken")
+const authToken = localStorage.getItem('authToken')
 
 axiosClient.defaults.headers.common = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-  Authorization: authToken === null ? "" : authToken
+  'Content-Type': 'application/json',
+  Accept: 'application/json',
+  Authorization: authToken === null ? '' : authToken,
 }
 
 axiosClient.defaults.timeout = 7000
@@ -32,16 +32,16 @@ export const axiosDelete = async URL => {
 }
 
 export const setAuthToken = token => {
-  localStorage.setItem("authToken", token)
+  localStorage.setItem('authToken', token)
   axiosClient.defaults.headers.common = {
-    Authorization: token
+    Authorization: token,
   }
 }
 
 export const clearToken = () => {
   localStorage.clear()
   axiosClient.defaults.headers.common = {
-    Authorization: ""
+    Authorization: '',
   }
 }
 
@@ -50,8 +50,7 @@ const apiClient = {
   axiosPost,
   axiosPatch,
   axiosDelete,
-  setAuthToken
+  setAuthToken,
 }
 
 export { apiClient }
-

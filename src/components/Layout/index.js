@@ -1,14 +1,14 @@
-import { CssBaseline, ThemeProvider } from "@mui/material"
-import Box from "@mui/material/Box"
-import { createTheme } from "@mui/material/styles"
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { Outlet } from "react-router-dom"
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import Box from '@mui/material/Box'
+import { createTheme } from '@mui/material/styles'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Outlet } from 'react-router-dom'
 
-import Header from "components/Header/Header"
+import Header from 'components/Header/Header'
 
 const Layout = () => {
-  const [mode, setMode] = React.useState("light")
+  const [mode, setMode] = React.useState('light')
   const { i18n } = useTranslation()
 
   // TODO: move state to redux
@@ -19,20 +19,20 @@ const Layout = () => {
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode(prevMode => (prevMode === "light" ? "dark" : "light"))
-      }
+        setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'))
+      },
     }),
-    []
+    [],
   )
 
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode
-        }
+          mode,
+        },
       }),
-    [mode]
+    [mode],
   )
 
   return (
@@ -47,9 +47,9 @@ const Layout = () => {
         <main>
           <Box
             sx={{
-              bgcolor: "background.paper",
+              bgcolor: 'background.paper',
               pt: 3,
-              pb: 3
+              pb: 3,
             }}
           >
             <Outlet />

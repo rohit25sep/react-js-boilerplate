@@ -1,18 +1,18 @@
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import EditIcon from "@mui/icons-material/Edit"
-import { Grid, IconButton, Paper } from "@mui/material"
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import EditIcon from '@mui/icons-material/Edit'
+import { Grid, IconButton, Paper } from '@mui/material'
 
 const styles = {
   Icon: {
-    marginLeft: "auto"
+    marginLeft: 'auto',
   },
   Paper: {
-    margin: "auto",
+    margin: 'auto',
     padding: 10,
-    display: "flex",
-    alignItems: "center",
-    marginTop: 10
-  }
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: 10,
+  },
 }
 
 export const PostCardView = props => {
@@ -40,11 +40,7 @@ export const PostCardView = props => {
           >
             <EditIcon />
           </IconButton>
-          <IconButton
-            color="secondary"
-            aria-label="Delete"
-            onClick={handleDeleteClick}
-          >
+          <IconButton color="secondary" aria-label="Delete" onClick={handleDeleteClick}>
             <DeleteForeverIcon />
           </IconButton>
         </Paper>
